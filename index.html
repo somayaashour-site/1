@@ -1,0 +1,1484 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#103d32">
+  <meta name="description" content="تعلم القرآن الكريم أونلاين مع الشيخة سمية عاشور: حفظ القرآن، التجويد، تصحيح التلاوة، والقاعدة النورانية للفتيات والنساء والأطفال.">
+  <meta property="og:title" content="الشيخة سمية عاشور | تعليم القرآن الكريم أونلاين">
+  <meta property="og:description" content="مسارات تعليمية أونلاين لحفظ القرآن الكريم وتصحيح التلاوة والتجويد والقاعدة النورانية.">
+  <meta property="og:type" content="website">
+  <title>الشيخة سمية عاشور | تعليم القرآن الكريم أونلاين</title>
+
+  <style>
+    /* ============================================================
+       دليل سريع للتعديل:
+       1) الألوان الرئيسية موجودة داخل :root بالأسفل.
+       2) شكل الأقسام والكروت والأزرار يتحكم فيه CSS بعد ذلك.
+       3) لإخفاء قسم كامل، ابحث عن id الخاص به واحذف عنصر <section> الخاص به.
+       4) الأنيميشن لا يحتاج أي مكتبة خارجية، ويُخفَّف تلقائيًا لمن يفضّل تقليل الحركة.
+       ============================================================ */
+
+    /* لوحة الألوان الأساسية — عدّل القيم هنا لتغيير الهوية البصرية للموقع كله. */
+    :root {
+      color-scheme: light;
+      --green: #103d32;
+      --green-2: #1e6653;
+      --green-3: #2f7a63;
+      --gold: #c9a85f;
+      --gold-light: #ead9a8;
+      --cream: #fbf8f0;
+      --paper: #ffffff;
+      --paper-soft: #f1f3ed;
+      --ink: #20332d;
+      --muted: #65756f;
+      --line: #e4e5d9;
+      --shadow: 0 18px 55px rgba(16, 61, 50, .10);
+      --header-bg: rgba(251, 248, 240, .88);
+      --hero-bg: #f4f1e7;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --container: 1160px;
+    }
+
+    /* ألوان الوضع الليلي. يتم تفعيله بزر القمر/الشمس وحفظه محليًا في المتصفح فقط. */
+    body[data-theme="dark"] {
+      color-scheme: dark;
+      --cream: #101c19;
+      --paper: #172722;
+      --paper-soft: #1c3028;
+      --ink: #e7eee9;
+      --muted: #b2c1b9;
+      --line: #2b4037;
+      --shadow: 0 18px 55px rgba(0, 0, 0, .22);
+      --header-bg: rgba(16, 28, 25, .90);
+      --hero-bg: #172923;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    
+    /* ========== تخصيص شريط التمرير (Custom Scrollbar) ========== */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      border-radius: 10px;
+      border: 3px solid var(--cream);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--gold);
+    }
+    /* ========================================================= */
+
+    /* ========== تخصيص مؤشر الماوس (Custom Cursor) ========== */
+    /* يتم إخفاء المؤشر الافتراضي فقط إذا كان الجهاز يدعم Hover (ليس هاتفاً) */
+    @media (hover: hover) and (pointer: fine) {
+      body {
+        cursor: none;
+      }
+      /* الدائرة الصغيرة التابعة للماوس */
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--gold);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease, background-color 0.2s ease;
+      }
+      /* الدائرة الكبيرة الشفافة المحيطة بالماوس */
+      .cursor-outline {
+        width: 30px;
+        height: 30px;
+        border: 2px solid rgba(201,168,95, 0.5); /* لون ذهبي شفاف */
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      }
+      
+      /* تأثير عند الوقوف على زر أو رابط */
+      body.cursor-hover .cursor-dot {
+        transform: translate(-50%, -50%) scale(0); /* إخفاء النقطة الصغيرة */
+      }
+      body.cursor-hover .cursor-outline {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(201,168,95, 0.15); /* تلوين الخلفية بشكل خفيف */
+        border-color: var(--gold);
+      }
+      
+      /* استثناءات: إرجاع الماوس العادي في بعض الأماكن إن لزم */
+      input, textarea { cursor: text; }
+    }
+    /* ========================================================= */
+
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.85;
+      overflow-x: hidden;
+      transition: background-color .35s ease, color .35s ease;
+    }
+    body, button, input { font-family: Tahoma, Arial, sans-serif; }
+    a { color: inherit; cursor: none;} /* cursor none ليعمل المؤشر المخصص */
+    button { color: inherit; cursor: none;} /* cursor none ليعمل المؤشر المخصص */
+    button, a, summary { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+    ::selection { color: #102f27; background: #ead9a8; }
+    .wrap { width: min(var(--container), 92%); margin-inline: auto; }
+    .section { padding: 94px 0; position: relative; }
+    .section-head { max-width: 720px; margin: 0 auto 46px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--green-2); font-size: 13px; font-weight: 800; letter-spacing: .2px;
+    }
+    body[data-theme="dark"] .eyebrow { color: var(--gold-light); }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); border-radius: 99px; }
+    .section-head h2 { color: var(--green); font-size: clamp(28px, 4vw, 43px); line-height: 1.35; margin: 10px 0 12px; letter-spacing: -.7px; }
+    body[data-theme="dark"] .section-head h2 { color: #e9d7a3; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 16px; }
+
+    /* شريط التقدّم أعلى الصفحة: يوضح مقدار التمرير ويضيف لمسة تفاعلية خفيفة. */
+    .reading-progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 1001; pointer-events: none; }
+    .reading-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), #f1df9e); box-shadow: 0 0 12px #c9a85f88; }
+
+    /* رأس الموقع ثابت وشفاف قليلًا حتى يظل التنقّل متاحًا أثناء التمرير. */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); transition: box-shadow .25s ease, background .3s ease; }
+    .site-header.scrolled { box-shadow: 0 9px 30px rgba(0, 0, 0, .07); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--green); font-weight: 900; white-space: nowrap; }
+    body[data-theme="dark"] .brand { color: #ecdfb9; }
+    .brand-mark { width: 48px; height: 48px; display: grid; place-items: center; position: relative; isolation: isolate; border: 1px solid var(--gold); color: var(--gold); border-radius: 50%; background: var(--paper); font-size: 27px; box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--gold) 12%, transparent); }
+    .brand-mark::after { content: ""; position: absolute; inset: 5px; border: 1px dashed color-mix(in srgb, var(--gold) 70%, transparent); border-radius: 50%; animation: orbit 28s linear infinite; z-index: -1; }
+    .brand-name { display: block; font-size: 15px; line-height: 1.4; }
+    .brand-subtitle { display: block; color: var(--muted); font-size: 10px; font-weight: 500; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(13px, 2vw, 25px); }
+    .nav-links a { position: relative; text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 700; white-space: nowrap; transition: color .2s ease; }
+    .nav-links a::after { content: ""; position: absolute; right: 0; left: 0; bottom: -9px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .25s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--green-2); }
+    body[data-theme="dark"] .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-tools { display: flex; align-items: center; gap: 8px; }
+    .icon-btn, .lang-btn, .menu-btn { min-height: 42px; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; cursor: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .icon-btn { width: 42px; display: grid; place-items: center; font-size: 18px; }
+    .lang-btn { padding: 0 13px; color: var(--green); font-size: 12px; font-weight: 800; }
+    body[data-theme="dark"] .lang-btn { color: var(--gold-light); }
+    .menu-btn { width: 42px; display: none; place-items: center; font-size: 22px; }
+    .icon-btn:hover, .lang-btn:hover, .menu-btn:hover { transform: translateY(-2px); border-color: var(--gold); }
+
+    /* الأزرار موحّدة لتسهيل تعديل شكلها من مكان واحد. */
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn { min-height: 49px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 22px; border-radius: 999px; border: 1px solid transparent; font-size: 13px; font-weight: 800; text-align: center; text-decoration: none; cursor: none; transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: white; background: var(--green); box-shadow: 0 10px 24px rgba(16, 61, 50, .18); }
+    .btn-primary:hover { background: var(--green-2); box-shadow: 0 15px 30px rgba(16, 61, 50, .22); }
+    .btn-outline { background: var(--paper); border-color: var(--line); color: var(--green); }
+    body[data-theme="dark"] .btn-outline { color: var(--ink); }
+    .btn-outline:hover { border-color: var(--gold); }
+    .btn-gold { background: var(--gold); color: #19372e; }
+    .btn-gold:hover { background: var(--gold-light); box-shadow: 0 12px 26px #c9a85f33; }
+    .btn .arrow { display: inline-block; transition: transform .25s ease; font-size: 17px; line-height: 1; }
+    .btn:hover .arrow { transform: translateX(-4px); }
+
+    /* الواجهة الرئيسية: زخارف CSS بدل تحميل صور خارجية، لتظل الصفحة خفيفة ومستقلة. */
+    .hero { position: relative; overflow: hidden; padding: clamp(60px, 8vw, 108px) 0 86px; background: radial-gradient(ellipse at 8% 18%, rgba(201,168,95,.19), transparent 30%), radial-gradient(ellipse at 85% 85%, rgba(47,122,99,.12), transparent 35%), linear-gradient(135deg, var(--hero-bg), var(--cream)); }
+    
+    /* ========== تأثير المنظور (Parallax Background Ornaments) ========== */
+    .hero-parallax-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* كي لا تتداخل مع النقرات */
+        z-index: 0;
+        overflow: hidden;
+    }
+    .parallax-item {
+        position: absolute;
+        color: rgba(201,168,95, 0.15); /* ذهبي شفاف */
+        font-size: 150px;
+        transition: transform 0.1s ease-out; /* حركة ناعمة */
+    }
+    .p-1 { top: 10%; left: -5%; font-size: 200px;}
+    .p-2 { top: 60%; left: 15%; font-size: 80px;}
+    .p-3 { top: 20%; right: 10%; font-size: 120px;}
+    .p-4 { top: 75%; right: -5%; font-size: 250px;}
+    
+    body[data-theme="dark"] .parallax-item {
+        color: rgba(201,168,95, 0.05); /* تخفيف الشفافية في الوضع الليلي */
+    }
+    /* ========================================================= */
+    
+    .hero::before { content: ""; position: absolute; width: 480px; height: 480px; border: 1px solid rgba(201,168,95,.25); border-radius: 50%; inset-inline-start: -275px; top: -190px; box-shadow: 0 0 0 28px rgba(201,168,95,.04), 0 0 0 58px rgba(201,168,95,.035), 0 0 0 88px rgba(201,168,95,.025); pointer-events: none; }
+    .hero::after { content: "۞"; position: absolute; inset-inline-end: -40px; bottom: -150px; font-size: clamp(220px, 31vw, 430px); line-height: 1; color: color-mix(in srgb, var(--green) 4%, transparent); pointer-events: none; animation: slowRotate 80s linear infinite; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(30px, 5vw, 70px); align-items: center; position: relative; z-index: 1; }
+    .hero-copy { animation: riseIn .9s .05s both; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid color-mix(in srgb, var(--gold) 48%, transparent); border-radius: 999px; color: var(--green-2); background: color-mix(in srgb, var(--paper) 68%, transparent); font-size: 12px; font-weight: 800; }
+    body[data-theme="dark"] .hero-kicker { color: var(--gold-light); }
+    .kicker-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 0 5px rgba(201,168,95,.13); }
+    h1 { color: var(--green); font-size: clamp(36px, 5vw, 64px); line-height: 1.28; letter-spacing: -1.7px; margin: 22px 0 18px; }
+    body[data-theme="dark"] h1 { color: #f0e3bd; }
+    
+  /* ========== تأثير التبديل الناعم (Fade & Slide) ========== */
+h1 {
+    color: var(--green);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.28;
+    letter-spacing: -1.7px;
+    margin: 22px 0 18px;
+    /* هذا السطر هو سر ثبات الصفحة، يمنع الارتفاع من الانهيار */
+    min-height: 140px; 
+}
+
+.hero-title-accent {
+    position: relative;
+    display: inline-block;
+    color: var(--gold);
+    white-space: nowrap; /* يمنع نزول الكلمة لسطرين */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* حالة الاختفاء لأعلى */
+.hero-title-accent.fade-out {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+/* حالة الاستعداد للظهور من أسفل */
+.hero-title-accent.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+}
+/* ========================================================= */
+    
+    .hero-desc { color: var(--muted); font-size: clamp(15px, 1.55vw, 18px); max-width: 620px; margin: 0 0 28px; }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 21px; color: var(--muted); font-size: 12px; }
+    .hero-note .check { width: 24px; height: 24px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--green-2); background: var(--paper); }
+
+    /* اللوحة الفنية على يسار العنوان في الواجهة الرئيسية — كلها مرسومة بـCSS. */
+    .hero-art-wrap { min-height: 425px; display: grid; place-items: center; position: relative; animation: riseIn .95s .18s both; }
+    .art-orbit { width: min(100%, 440px); aspect-ratio: 1; border: 1px solid rgba(201,168,95,.55); border-radius: 50%; display: grid; place-items: center; position: relative; animation: orbit 55s linear infinite; }
+    .art-orbit::before, .art-orbit::after { content: ""; position: absolute; border: 1px dashed rgba(201,168,95,.34); border-radius: 50%; inset: 22px; }
+    .art-orbit::after { inset: 45px; border-style: solid; opacity: .7; }
+    .orbit-dot { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 7px rgba(201,168,95,.15); top: 12%; inset-inline-start: 19%; }
+    .orbit-star { position: absolute; color: var(--gold); font-size: 24px; bottom: 13%; inset-inline-end: 15%; }
+    .quran-scene { width: 76%; aspect-ratio: .88; position: relative; display: grid; place-items: center; animation: floatY 6s ease-in-out infinite; }
+    .scene-halo { position: absolute; width: 86%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,95,.24), rgba(201,168,95,.04) 65%, transparent 70%); }
+    .scene-arch { position: absolute; inset: 7% 10% 4%; border-radius: 48% 48% 12px 12px; background: linear-gradient(145deg, #1e6653, #103d32 75%); box-shadow: 0 25px 60px rgba(16,61,50,.20); overflow: hidden; }
+    .scene-arch::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(234,217,168,.32); border-radius: 48% 48% 8px 8px; }
+    .scene-arch::after { content: "۞"; position: absolute; top: 12%; right: 0; left: 0; text-align: center; font-size: 190px; line-height: 1; color: rgba(234,217,168,.075); }
+    .arch-lines { position: absolute; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent 0 23px, rgba(234,217,168,.055) 24px 25px, transparent 26px 46px); opacity: .7; }
+    .open-book { position: absolute; left: 50%; top: 54%; width: 76%; height: 29%; transform: translate(-50%,-50%) rotate(-4deg); filter: drop-shadow(0 16px 13px rgba(0,0,0,.23)); }
+    .book-page { position: absolute; width: 50%; height: 100%; top: 0; background: linear-gradient(145deg,#fffdf5,#e8dfc5); border: 1px solid #bba66d; }
+    .book-page.left { right: 0; transform: skewY(7deg); border-radius: 5px 16px 9px 4px; }
+    .book-page.right { left: 0; transform: skewY(-7deg); border-radius: 16px 5px 4px 9px; }
+    .book-page::after { content: ""; position: absolute; inset: 12% 13%; background: repeating-linear-gradient(to bottom, transparent 0 8px, rgba(30,102,83,.30) 9px 10px, transparent 11px 16px); opacity: .65; }
+    .book-spine { position: absolute; z-index: 2; width: 4px; height: 106%; top: -3%; left: 50%; transform: translateX(-50%); background: linear-gradient(#a88a49,#f1d78f,#a88a49); border-radius: 4px; }
+    .floating-seal { position: absolute; width: 78px; height: 78px; display: grid; place-items: center; border: 1px solid rgba(201,168,95,.7); border-radius: 50%; background: var(--paper); color: var(--gold); box-shadow: var(--shadow); font-size: 30px; animation: floatY 5s ease-in-out infinite; }
+    .floating-seal.seal-one { top: 8%; inset-inline-end: 2%; animation-delay: -.8s; }
+    .floating-seal.seal-two { bottom: 7%; inset-inline-start: 0; width: 66px; height: 66px; font-size: 24px; animation-delay: -2s; }
+    .art-caption { position: absolute; bottom: 0; inset-inline-end: 0; max-width: 235px; padding: 14px 17px; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb, var(--paper) 91%, transparent); box-shadow: var(--shadow); backdrop-filter: blur(12px); animation: floatY 5.5s ease-in-out infinite; animation-delay: -1.2s; }
+    .art-caption strong { display: block; color: var(--green); font-size: 13px; }
+    body[data-theme="dark"] .art-caption strong { color: var(--gold-light); }
+    .art-caption span { color: var(--muted); font-size: 11px; }
+
+    /* ========== قسم العدادات (Animated Counters) ========== */
+    .counters-section {
+        background: var(--green);
+        color: white;
+        padding: 40px 0;
+        position: relative;
+        z-index: 2;
+        margin-top: -1px; /* دمج مع الهيرو */
+    }
+    .counters-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        text-align: center;
+    }
+    .counter-item {
+        padding: 20px;
+        border-inline-start: 1px solid rgba(255,255,255,.14);
+    }
+    .counter-item:first-child { border-inline-start: none; }
+    .counter-number {
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 900;
+        color: var(--gold-light);
+        line-height: 1;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .counter-number .plus { color: rgba(255,255,255,0.5); font-size: 0.8em; }
+    .counter-label {
+        font-size: 14px;
+        color: #c8d8d0;
+        font-weight: 700;
+    }
+    @media (max-width: 768px) {
+        .counters-grid { grid-template-columns: 1fr; gap: 15px;}
+        .counter-item { border-inline-start: none; border-bottom: 1px solid rgba(255,255,255,.14); padding: 15px; }
+        .counter-item:last-child { border-bottom: none; }
+    }
+    /* ========================================================= */
+
+
+    /* شريط مميزات مختصر بعد الواجهة — النصوص عامة ولا تدّعي أرقامًا أو نتائج غير مؤكدة. */
+    .benefit-strip { position: relative; z-index: 2; margin-top: -1px; background: var(--green-2); color: white; }
+    .benefits { display: grid; grid-template-columns: repeat(3,1fr); }
+    .benefit { display: flex; align-items: center; justify-content: center; gap: 13px; padding: 23px 14px; border-inline-start: 1px solid rgba(255,255,255,.14); }
+    .benefit:last-child { border-inline-start: 0; }
+    .benefit-icon { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border: 1px solid rgba(234,217,168,.4); border-radius: 13px; color: var(--gold-light); font-size: 20px; }
+    .benefit strong { display: block; font-size: 13px; }
+    .benefit span { display: block; font-size: 11px; color: #c8d8d0; margin-top: 2px; }
+
+    /* كروت البرامج التعليمية. */
+    .programs-section { background: var(--cream); perspective: 1000px; /* ضروري لـ 3D Hover */}
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    
+    /* ========== تأثير حركة ثلاثية الأبعاد (3D Hover Tilt) ========== */
+    .program-card-wrapper {
+        perspective: 1000px; /* يعطي عمق للحركة */
+    }
+    .program-card {
+        min-height: 250px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--paper);
+        padding: 26px;
+        box-shadow: 0 8px 25px rgba(16,61,50,.035);
+        /* تم إزالة transition للـ transform من هنا ليتحكم بها الـ JS بسلاسة */
+        transition: box-shadow .35s ease, border-color .35s ease;
+        transform-style: preserve-3d; /* يحافظ على 3D للعناصر الداخلية */
+    }
+    
+    /* العناصر الداخلية نعطيها transform: translateZ لتبدو بارزة */
+    .program-card .card-top,
+    .program-card h3,
+    .program-card p,
+    .program-card .card-link {
+         transform: translateZ(30px); /* بروز خفيف للأمام */
+         transition: transform 0.3s ease;
+    }
+    
+    .program-card::before { content: ""; position: absolute; inset-inline-end: -52px; bottom: -65px; width: 150px; height: 150px; border: 1px solid rgba(201,168,95,.23); border-radius: 50%; box-shadow: 0 0 0 15px rgba(201,168,95,.035), 0 0 0 31px rgba(201,168,95,.025); transition: transform .5s ease; transform: translateZ(0); /* الخلفية تبقى بالخلف */}
+    
+    /* تأثيرات عند التمرير بدون JS كخيار بديل */
+    .program-card:hover { border-color: rgba(201,168,95,.7); box-shadow: 0 20px 40px rgba(16, 61, 50, .15); }
+    body[data-theme="dark"] .program-card:hover { box-shadow: 0 20px 40px rgba(0, 0, 0, .4); }
+    .program-card:hover::before { transform: scale(1.15) rotate(12deg); }
+    /* ========================================================= */
+
+
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .card-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 17px; background: color-mix(in srgb, var(--gold) 18%, var(--paper)); color: var(--green); border: 1px solid color-mix(in srgb, var(--gold) 36%, transparent); font-size: 26px; transition: transform .3s ease; }
+    .program-card:hover .card-icon { transform: rotate(-7deg) scale(1.06); }
+    .card-number { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+    .program-card h3 { color: var(--green); font-size: 18px; margin: 18px 0 7px; }
+    body[data-theme="dark"] .program-card h3 { color: #eadbb1; }
+    .program-card p { color: var(--muted); font-size: 13px; margin: 0; position: relative; z-index: 1; }
+    .card-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; text-decoration: none; color: var(--green-2); font-weight: 800; font-size: 12px; position: relative; z-index: 1; cursor: none;}
+    body[data-theme="dark"] .card-link { color: var(--gold-light); }
+    .card-link span { transition: transform .2s ease; }
+    .card-link:hover span { transform: translateX(-4px); }
+
+    /* قسم اختيار البرنامج بالأسئلة — يعمل محليًا ولا يرسل شيئًا حتى تختار الزائرة فتح واتساب. */
+    .finder-section { overflow: hidden; background: var(--paper-soft); }
+    .finder-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 34px; }
+    .finder-intro { padding-top: 12px; }
+    .finder-intro h2 { color: var(--green); font-size: clamp(29px, 4vw, 42px); line-height: 1.4; margin: 12px 0; }
+    body[data-theme="dark"] .finder-intro h2 { color: #eadbb1; }
+    .finder-intro p { color: var(--muted); margin: 0 0 22px; }
+    .finder-points { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .finder-points li { display: flex; gap: 10px; color: var(--muted); font-size: 13px; }
+    .finder-points li::before { content: "✓"; flex: 0 0 23px; width: 23px; height: 23px; display: grid; place-items: center; border-radius: 50%; background: rgba(47,122,99,.12); color: var(--green-2); font-weight: 900; }
+    .finder-card { border: 1px solid var(--line); background: var(--paper); border-radius: var(--radius-lg); padding: clamp(22px, 4vw, 36px); box-shadow: var(--shadow); }
+    .finder-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 26px; }
+    .finder-card-head h3 { color: var(--green); margin: 0; font-size: 19px; }
+    body[data-theme="dark"] .finder-card-head h3 { color: #eadbb1; }
+    .finder-badge { font-size: 11px; padding: 5px 10px; color: var(--green-2); background: color-mix(in srgb, var(--gold) 18%, var(--paper)); border-radius: 99px; white-space: nowrap; }
+    .question { border: 0; padding: 0; margin: 0 0 24px; min-width: 0; }
+    .question legend { display: block; width: 100%; padding: 0; margin-bottom: 12px; color: var(--ink); font-size: 13px; font-weight: 800; }
+    .option-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+    .option { position: relative; display: flex; align-items: center; gap: 9px; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 13px; background: var(--cream); color: var(--muted); font-size: 12px; cursor: none; transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease; }
+    .option:hover { transform: translateY(-2px); border-color: var(--gold); }
+    .option input { width: 16px; height: 16px; margin: 0; accent-color: var(--green-2); flex: 0 0 auto; cursor: none;}
+    .option:has(input:checked) { border-color: var(--green-2); background: color-mix(in srgb, var(--green-2) 8%, var(--paper)); color: var(--green); }
+    body[data-theme="dark"] .option:has(input:checked) { color: #eadbb1; }
+    .finder-card .btn { width: 100%; }
+    .finder-result { display: none; margin-top: 18px; padding: 18px; border: 1px solid color-mix(in srgb, var(--gold) 65%, var(--line)); border-radius: 16px; background: color-mix(in srgb, var(--gold) 10%, var(--paper)); animation: riseIn .35s ease both; }
+    .finder-result.show { display: block; }
+    .finder-result h4 { margin: 0 0 5px; color: var(--green); font-size: 16px; }
+    body[data-theme="dark"] .finder-result h4 { color: var(--gold-light); }
+    .finder-result p { margin: 0 0 13px; color: var(--muted); font-size: 12px; }
+    .finder-result .btn { width: auto; min-height: 42px; }
+    .privacy-note { margin: 13px 0 0; color: var(--muted); font-size: 10px; text-align: center; }
+
+    /* الفئة المستهدفة. نستخدم زخارف وعلامات بسيطة بدل صور خارجية ثقيلة. */
+    .audience-section { background: var(--cream); }
+    .audience-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .audience-item { position: relative; overflow: hidden; padding: 30px 24px; text-align: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); transition: transform .3s ease, box-shadow .3s ease; }
+    .audience-item:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .audience-symbol { width: 66px; height: 66px; display: grid; place-items: center; margin: 0 auto 14px; border-radius: 22px; color: var(--green); background: color-mix(in srgb, var(--gold) 19%, var(--paper)); font-size: 30px; }
+    .audience-item h3 { margin: 0 0 6px; color: var(--green); font-size: 18px; }
+    body[data-theme="dark"] .audience-item h3 { color: #eadbb1; }
+    .audience-item p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    /* خطوات بداية التعلم، بتصميم خط زمني بسيط وواضح. */
+    .steps-section { background: var(--paper-soft); }
+    .steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; counter-reset: learning-step; }
+    .step { counter-increment: learning-step; position: relative; padding: 28px 25px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .step::before { content: "0" counter(learning-step); display: inline-grid; place-items: center; width: 49px; height: 49px; margin-bottom: 17px; border-radius: 16px; background: var(--green); color: var(--gold-light); font-size: 15px; font-weight: 900; }
+    .step h3 { margin: 0 0 7px; color: var(--green); font-size: 17px; }
+    body[data-theme="dark"] .step h3 { color: #eadbb1; }
+    .step p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    /* الأسئلة الشائعة باستخدام details/summary حتى تعمل حتى لو توقف JavaScript. */
+    .faq-list { max-width: 850px; margin-inline: auto; display: grid; gap: 12px; }
+    .faq-item { border: 1px solid var(--line); border-radius: 16px; background: var(--paper); overflow: hidden; transition: border-color .2s ease; }
+    .faq-item[open] { border-color: color-mix(in srgb, var(--gold) 70%, var(--line)); }
+    .faq-item summary { list-style: none; cursor: none; padding: 19px 22px; display: flex; align-items: center; justify-content: space-between; gap: 15px; color: var(--green); font-weight: 800; font-size: 14px; }
+    body[data-theme="dark"] .faq-item summary { color: #eadbb1; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    
+    /* التعديل المأخوذ من المصدر لضبط الـ + و - في المنتصف */
+    .faq-item summary::after {
+      content: "+";
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      display: flex; 
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--paper-soft);
+      color: var(--green-2);
+      font-size: 24px; 
+      font-weight: 400;
+      line-height: 0; 
+      padding-bottom: 2px; 
+      transition: all .2s ease;
+    }
+    .faq-item[open] summary::after { 
+      content: "-"; 
+      background: var(--green); 
+      color: white; 
+    }
+    
+    .faq-answer { padding: 0 22px 20px; color: var(--muted); font-size: 13px; }
+    .faq-answer p { margin: 0; }
+
+    /* ========== مشغل الصوتيات (Audio Player) ========== */
+    .audio-section {
+        background: var(--cream);
+    }
+    .audio-player {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: var(--shadow);
+    }
+    .play-btn {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
+        border-radius: 50%;
+        background: var(--green);
+        color: white;
+        display: grid;
+        place-items: center;
+        border: none;
+        cursor: none;
+        font-size: 24px;
+        transition: transform 0.2s ease, background 0.2s ease;
+        padding-left: 5px; /* لتوسيط أيقونة التشغيل */
+    }
+    .play-btn:hover {
+        transform: scale(1.05);
+        background: var(--green-2);
+    }
+    .play-btn.playing {
+        padding-left: 0; /* إرجاع التوسيط لأيقونة التوقف */
+    }
+    .audio-info { flex: 1; }
+    .audio-title {
+        color: var(--green);
+        font-weight: 800;
+        margin-bottom: 5px;
+        display: block;
+    }
+    body[data-theme="dark"] .audio-title { color: #eadbb1; }
+    .audio-subtitle {
+        color: var(--muted);
+        font-size: 12px;
+    }
+    .audio-progress {
+        width: 100%;
+        height: 6px;
+        background: var(--line);
+        border-radius: 10px;
+        margin-top: 15px;
+        overflow: hidden;
+        cursor: none;
+        position: relative;
+    }
+    .audio-progress-bar {
+        height: 100%;
+        background: var(--gold);
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+    /* ========================================================= */
+
+
+    /* نهاية الصفحة مصممة كدعوة واضحة للتواصل، مع بقاء معلومات المواعيد غير مفترضة. */
+    .contact-section { position: relative; overflow: hidden; padding: 84px 0; background: radial-gradient(circle at 5% 30%, rgba(234,217,168,.13), transparent 30%), var(--green); color: white; text-align: center; }
+    .contact-section::before { content: "۞"; position: absolute; inset-inline-start: -70px; top: -190px; font-size: 400px; color: rgba(234,217,168,.05); pointer-events: none; animation: slowRotate 90s linear infinite; }
+    .contact-content { position: relative; z-index: 1; max-width: 760px; margin: auto; }
+    .contact-section .eyebrow { color: var(--gold-light); }
+    .contact-section h2 { margin: 13px 0; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.35; }
+    .contact-section p { max-width: 620px; margin: 0 auto 26px; color: #d0dfd7; }
+    .contact-section .actions { justify-content: center; }
+    .contact-section .btn-outline { color: white; background: transparent; border-color: rgba(255,255,255,.35); }
+    .contact-section .btn-outline:hover { border-color: var(--gold-light); }
+    .contact-small { margin-top: 18px; color: #c2d4ca; font-size: 11px; }
+
+    /* التذييل: تم تعديل الحقوق بناءً على المصدر */
+    .site-footer { padding: 25px 0; background: #0b2b24; color: #d5e1da; font-size: 12px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand-mark { color: var(--gold-light); font-size: 23px; }
+    .footer-note { color: #a9c0b4; font-size: 11px; }
+
+    /* أدوات عائمة: واتساب للتواصل السريع وزر أعلى الصفحة. */
+    .floating-whatsapp { position: fixed; z-index: 90; inset-inline-end: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 9px; min-height: 52px; padding: 0 17px; border-radius: 999px; background: #1d8b59; color: white; text-decoration: none; box-shadow: 0 12px 28px rgba(0,0,0,.18); font-size: 12px; font-weight: 900; transition: transform .25s ease, box-shadow .25s ease; cursor: none;}
+    .floating-whatsapp:hover { transform: translateY(-4px); box-shadow: 0 17px 35px rgba(0,0,0,.24); }
+    .whatsapp-icon { font-size: 21px; line-height: 1; }
+    .to-top { position: fixed; z-index: 90; inset-inline-start: 22px; bottom: 23px; width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--green); box-shadow: var(--shadow); font-size: 20px; cursor: none; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease, visibility .25s ease; }
+    .to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    
+    /* ========== النافذة المنبثقة الذكية (Smart Modal) ========== */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(5px);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-content {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        max-width: 450px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        transform: translateY(30px) scale(0.95);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+    .modal-overlay.active .modal-content {
+        transform: translateY(0) scale(1);
+    }
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        inset-inline-end: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--muted);
+        cursor: none;
+        transition: color 0.2s ease;
+    }
+    .modal-close:hover { color: var(--green); }
+    body[data-theme="dark"] .modal-close:hover { color: var(--gold-light); }
+    
+    .modal-icon {
+        width: 70px;
+        height: 70px;
+        background: color-mix(in srgb, var(--gold) 20%, var(--paper));
+        color: var(--gold);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 35px;
+        margin: 0 auto 20px;
+    }
+    .modal-title { color: var(--green); font-size: 24px; margin: 0 0 10px; }
+    body[data-theme="dark"] .modal-title { color: #eadbb1; }
+    .modal-desc { color: var(--muted); font-size: 14px; margin: 0 0 25px; }
+    .modal-content .btn { width: 100%; }
+    /* ========================================================= */
+
+
+    /* ظهور تدريجي للأقسام عند دخولها مجال الرؤية بواسطة IntersectionObserver. */
+    .js-enabled .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1); }
+    .js-enabled .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js-enabled .reveal-delay-1 { transition-delay: .08s; }
+    .js-enabled .reveal-delay-2 { transition-delay: .16s; }
+    .js-enabled .reveal-delay-3 { transition-delay: .24s; }
+
+    /* Keyframes للأنيميشن — يمكنك تعطيل حركة معيّنة بحذف animation من العنصر المقابل. */
+    @keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes slowRotate { to { transform: rotate(-360deg); } }
+
+    /* استجابة الشاشات المتوسطة والصغيرة. */
+    @media (max-width: 1000px) {
+      .nav { gap: 12px; }
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: 12px; }
+      .hero-grid { gap: 25px; }
+      .hero-art-wrap { min-height: 370px; }
+      .finder-layout { gap: 22px; }
+    }
+    @media (max-width: 820px) {
+      .nav { min-height: 72px; }
+      .menu-btn { display: grid; }
+      .nav-tools { margin-inline-start: auto; }
+      .nav-links { position: absolute; top: calc(100% + 1px); inset-inline: 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 4%; background: var(--header-bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .22s ease, visibility .22s ease, transform .22s ease; }
+      .nav-links.open { opacity: 1; visibility: visible; transform: translateY(0); }
+      .nav-links a { padding: 12px 10px; border-bottom: 1px solid var(--line); font-size: 14px; }
+      .nav-links a:last-child { border-bottom: 0; }
+      .nav-links a::after { display: none; }
+      .hero-grid { grid-template-columns: 1fr  .85fr; gap: 17px; }
+      h1 { font-size: clamp(34px, 5.5vw, 48px); }
+      .hero-art-wrap { min-height: 310px; }
+      .floating-seal { width: 58px; height: 58px; font-size: 23px; }
+      .floating-seal.seal-two { width: 52px; height: 52px; }
+      .art-caption { max-width: 195px; padding: 10px 12px; }
+      .benefit { justify-content: flex-start; padding-inline: 11px; }
+      .benefit-icon { width: 34px; height: 34px; flex-basis: 34px; }
+      .cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .finder-layout { grid-template-columns: 1fr; }
+      .finder-intro { max-width: 700px; }
+      .section { padding: 74px 0; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 32px, var(--container)); }
+      .nav { min-height: 66px; gap: 8px; }
+      .brand { gap: 8px; }
+      .brand-mark { width: 40px; height: 40px; font-size: 23px; }
+      .brand-name { font-size: 12px; }
+      .brand-subtitle { font-size: 9px; }
+      .nav-tools { gap: 5px; }
+      .icon-btn, .lang-btn, .menu-btn { min-height: 37px; }
+      .icon-btn, .menu-btn { width: 37px; }
+      .lang-btn { padding-inline: 10px; font-size: 11px; }
+      .hero { padding: 55px 0 45px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-copy { text-align: center; }
+      .hero-kicker { font-size: 11px; }
+      h1 { font-size: clamp(35px, 10vw, 47px); letter-spacing: -.8px; margin: 17px 0 13px; }
+      .hero-desc { font-size: 15px; margin-bottom: 22px; }
+      .actions { justify-content: center; }
+      .hero-copy .actions .btn { width: 100%; }
+      .hero-note { justify-content: center; font-size: 11px; }
+      .hero-art-wrap { min-height: 310px; margin: -2px auto 8px; width: min(100%, 360px); }
+      .art-orbit { width: 88%; }
+      .art-caption { bottom: -2px; inset-inline-end: -2px; }
+      .benefits { grid-template-columns: 1fr; padding-block: 5px; }
+      .benefit { justify-content: flex-start; padding: 13px 8px; border-inline-start: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+      .benefit:last-child { border-bottom: 0; }
+      .section { padding: 62px 0; }
+      .section-head { margin-bottom: 30px; }
+      .section-head p { font-size: 14px; }
+      .cards, .audience-grid, .steps { grid-template-columns: 1fr; }
+      .program-card { min-height: auto; padding: 23px; }
+      .finder-card { border-radius: 21px; padding: 20px 16px; }
+      .finder-card-head { align-items: flex-start; }
+      .finder-card-head h3 { font-size: 16px; }
+      .option-grid { grid-template-columns: 1fr; }
+      .option { min-height: 45px; }
+      .finder-result .btn { width: 100%; }
+      .contact-section { padding: 65px 0; }
+      .contact-section .actions .btn { width: 100%; }
+      .footer-row { justify-content: center; text-align: center; }
+      .floating-whatsapp { inset-inline-end: 12px; bottom: 12px; min-height: 47px; padding-inline: 14px; }
+      .to-top { inset-inline-start: 12px; bottom: 13px; width: 42px; height: 42px; }
+    }
+    /* احترام تفضيل تقليل الحركة لمن لديهم حساسية من الأنيميشن. */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js-enabled .reveal { opacity: 1; transform: none; }
+      .typewriter-container .hero-title-accent::after { animation: none; opacity: 1;}
+    }
+  </style>
+
+  <!-- نضيف هذا التصنيف مبكرًا حتى تعمل مؤثرات الظهور فقط عندما يكون JavaScript متاحًا. -->
+  <script>document.documentElement.classList.add('js-enabled');</script>
+</head>
+<body>
+  <!-- عناصر الماوس المخصص (Custom Cursor) -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- شريط تقدّم القراءة أعلى الشاشة -->
+  <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+  <!-- رأس الموقع -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="العودة إلى بداية الموقع">
+        <span class="brand-mark" aria-hidden="true">۞</span>
+        <span>
+          <span class="brand-name" data-ar="الشيخة سمية عاشور" data-en="Sheikha Somaya Ashour">الشيخة سمية عاشور</span>
+          <span class="brand-subtitle" data-ar="تعليم القرآن الكريم أونلاين" data-en="Online Qur’an Learning">تعليم القرآن الكريم أونلاين</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="التنقل الرئيسي">
+        <a href="#programs" data-ar="البرامج" data-en="Programs">البرامج</a>
+        <a href="#finder" data-ar="اختاري مسارك" data-en="Find your path">اختاري مسارك</a>
+        <a href="#audience" data-ar="لمن الدروس؟" data-en="Who can join?">لمن الدروس؟</a>
+        <a href="#how" data-ar="كيف نبدأ؟" data-en="How to start">كيف نبدأ؟</a>
+        <a href="#faq" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</a>
+        <a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+      </nav>
+
+      <div class="nav-tools">
+        <button class="lang-btn" id="langToggle" type="button" aria-label="تغيير لغة الموقع">English</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="تفعيل الوضع الليلي" title="الوضع الليلي"><span id="themeIcon" aria-hidden="true">☾</span></button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- الواجهة الرئيسية -->
+    <section class="hero" id="home">
+      <!-- زخارف خلفية متحركة (Parallax) -->
+      <div class="hero-parallax-bg" id="parallaxBg">
+          <div class="parallax-item p-1" data-speed="0.05">۞</div>
+          <div class="parallax-item p-2" data-speed="0.08">✧</div>
+          <div class="parallax-item p-3" data-speed="0.03">✦</div>
+          <div class="parallax-item p-4" data-speed="0.06">۞</div>
+      </div>
+        
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span class="kicker-dot" aria-hidden="true"></span><span data-ar="رحلة مباركة مع كتاب الله" data-en="A blessed journey with the Qur’an">رحلة مباركة مع كتاب الله</span></div>
+          
+          <!-- تأثير الكتابة التلقائية (Typewriter) -->
+       <h1>
+  <span class="static-text" data-ar="تعلّمي" data-en="Learn">تعلّمي</span>
+  <br>
+  <!-- تم تغيير الـ id وإزالة كود الـ typewriter -->
+  <span class="hero-title-accent" id="rotatingText" data-ar="حفظ القرآن الكريم" data-en="Qur'an Memorization">حفظ القرآن الكريم</span>
+  <br>
+  <span data-ar="بثقة وطمأنينة" data-en="with confidence and care">بثقة وطمأنينة</span>
+</h1>
+          
+          <p class="hero-desc" data-ar="دروس أونلاين في حفظ القرآن الكريم، ومراجعة المحفوظ، وتصحيح التلاوة، وأحكام التجويد، والقاعدة النورانية للفتيات والنساء والأطفال." data-en="Online lessons in Qur’an memorization and revision, recitation correction, Tajweed, and Noorani Qaida for girls, women, and children.">دروس أونلاين في حفظ القرآن الكريم، ومراجعة المحفوظ، وتصحيح التلاوة، وأحكام التجويد، والقاعدة النورانية للفتيات والنساء والأطفال.</p>
+          <div class="actions">
+            <a class="btn btn-primary wa-link" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="تواصلي عبر واتساب" data-en="Contact on WhatsApp">تواصلي عبر واتساب</span><span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#programs"><span data-ar="اكتشفي البرامج" data-en="Explore programs">اكتشفي البرامج</span><span class="arrow" aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note"><span class="check" aria-hidden="true">✓</span><span data-ar="اختاري المسار المناسب لمستواك وهدفك" data-en="Choose a path that fits your level and goals">اختاري المسار المناسب لمستواك وهدفك</span></div>
+        </div>
+
+        <div class="hero-art-wrap" aria-label="رسم زخرفي لكتاب مفتوح داخل قوس إسلامي" role="img">
+          <div class="art-orbit">
+            <span class="orbit-dot" aria-hidden="true"></span>
+            <span class="orbit-star" aria-hidden="true">✦</span>
+            <div class="quran-scene">
+              <div class="scene-halo"></div>
+              <div class="scene-arch"><div class="arch-lines"></div></div>
+              <div class="open-book" aria-hidden="true">
+                <div class="book-page left"></div><div class="book-page right"></div><div class="book-spine"></div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-seal seal-one" aria-hidden="true">۞</div>
+          <div class="floating-seal seal-two" aria-hidden="true">✧</div>
+          <div class="art-caption"><strong data-ar="خطوة بخطوة" data-en="One step at a time">خطوة بخطوة</strong><span data-ar="تعلّم يناسب مستواك واحتياجك" data-en="Learning that fits your level and needs">تعلّم يناسب مستواك واحتياجك</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم العدادات المتحركة (Counters) -->
+    <div class="counters-section reveal" id="countersSection">
+        <div class="wrap counters-grid">
+            <div class="counter-item">
+                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="10">0</span></div>
+                <div class="counter-label" data-ar="سنوات خبرة في التعليم" data-en="Years of teaching experience">سنوات خبرة في التعليم</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="500">0</span></div>
+                <div class="counter-label" data-ar="طالبة أتممن البرامج" data-en="Students completed programs">طالبة أتممن البرامج</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number"><span class="count-up" data-target="6">0</span></div>
+                <div class="counter-label" data-ar="مسارات تعليمية متخصصة" data-en="Specialized learning paths">مسارات تعليمية متخصصة</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شريط المميزات المختصر -->
+    <!-- <div class="benefit-strip" aria-label="مميزات التعلّم">
+      <div class="wrap benefits">
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">◉</span><div><strong data-ar="تعلّم عن بُعد" data-en="Online learning">تعلّم عن بُعد</strong><span data-ar="من المكان المناسب لك" data-en="From a place that suits you">من المكان المناسب لك</span></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">✦</span><div><strong data-ar="مسارات متنوعة" data-en="Different learning paths">مسارات متنوعة</strong><span data-ar="من التأسيس إلى التجويد" data-en="From foundations to Tajweed">من التأسيس إلى التجويد</span></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">♡</span><div><strong data-ar="مراعاة المستوى" data-en="Level-aware learning">مراعاة المستوى</strong><span data-ar="تواصلي لمناقشة الأنسب" data-en="Discuss the best fit with us">تواصلي لمناقشة الأنسب</span></div></div>
+      </div>
+    </div> -->
+
+    <!-- البرامج التعليمية (تأثير 3D) -->
+    <section class="section programs-section" id="programs">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-ar="مسارات التعلّم" data-en="Learning paths">مسارات التعلّم</div>
+          <h2 data-ar="اختاري البرنامج المناسب لرحلتك" data-en="Choose the right learning path">اختاري البرنامج المناسب لرحلتك</h2>
+          <p data-ar="مسارات تعليمية تناسب الاحتياجات المختلفة، من البداية وحتى تحسين التلاوة والحفظ." data-en="Learning paths for different needs, from the basics to stronger recitation and memorization.">مسارات تعليمية تناسب الاحتياجات المختلفة، من البداية وحتى تحسين التلاوة والحفظ.</p>
+        </div>
+        <div class="cards">
+            <!-- تمت إضافة program-card-wrapper لتفعيل تأثير 3D -->
+          <div class="program-card-wrapper reveal reveal-delay-1">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">۞</div><span class="card-number">01 / 06</span></div>
+                <h3 data-ar="حفظ القرآن الكريم" data-en="Qur’an Memorization">حفظ القرآن الكريم</h3>
+                <p data-ar="خطة حفظ تدريجية ومراجعة للمحفوظ، بما يناسب مستوى الطالبة وقدرتها." data-en="A gradual memorization plan with revision, adapted to the learner’s level and pace.">خطة حفظ تدريجية ومراجعة للمحفوظ، بما يناسب مستوى الطالبة وقدرتها.</p>
+                <a class="card-link program-contact" data-program-ar="حفظ القرآن الكريم" data-program-en="Qur’an Memorization" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+          
+          <div class="program-card-wrapper reveal reveal-delay-2">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">◉</div><span class="card-number">02 / 06</span></div>
+                <h3 data-ar="تصحيح التلاوة" data-en="Recitation Correction">تصحيح التلاوة</h3>
+                <p data-ar="التدرّب على القراءة الصحيحة ومخارج الحروف، مع ملاحظات عملية أثناء الدرس." data-en="Practice accurate recitation and letter articulation, with practical feedback during lessons.">التدرّب على القراءة الصحيحة ومخارج الحروف، مع ملاحظات عملية أثناء الدرس.</p>
+                <a class="card-link program-contact" data-program-ar="تصحيح التلاوة" data-program-en="Recitation Correction" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+          
+          <div class="program-card-wrapper reveal reveal-delay-3">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">✦</div><span class="card-number">03 / 06</span></div>
+                <h3 data-ar="أحكام التجويد" data-en="Tajweed Rules">أحكام التجويد</h3>
+                <p data-ar="دراسة قواعد التجويد نظريًا وتطبيقها عمليًا أثناء تلاوة القرآن." data-en="Learn Tajweed rules in theory and apply them in Qur’an recitation.">دراسة قواعد التجويد نظريًا وتطبيقها عمليًا أثناء تلاوة القرآن.</p>
+                <a class="card-link program-contact" data-program-ar="أحكام التجويد" data-program-en="Tajweed Rules" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+          
+          <div class="program-card-wrapper reveal reveal-delay-1">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">ا</div><span class="card-number">04 / 06</span></div>
+                <h3 data-ar="القاعدة النورانية" data-en="Noorani Qaida">القاعدة النورانية</h3>
+                <p data-ar="تأسيس للمبتدئات والأطفال في الحروف والقراءة خطوة بخطوة." data-en="Step-by-step foundations in Arabic letters and reading for beginners and children.">تأسيس للمبتدئات والأطفال في الحروف والقراءة خطوة بخطوة.</p>
+                <a class="card-link program-contact" data-program-ar="القاعدة النورانية" data-program-en="Noorani Qaida" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+          
+          <div class="program-card-wrapper reveal reveal-delay-2">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">↻</div><span class="card-number">05 / 06</span></div>
+                <h3 data-ar="مراجعة وتثبيت الحفظ" data-en="Revision & Retention">مراجعة وتثبيت الحفظ</h3>
+                <p data-ar="مراجعة منتظمة للمحفوظ للمساعدة على تثبيته وتحسين الاسترسال في التلاوة." data-en="Structured revision to reinforce memorized passages and improve fluency.">مراجعة منتظمة للمحفوظ للمساعدة على تثبيته وتحسين الاسترسال في التلاوة.</p>
+                <a class="card-link program-contact" data-program-ar="مراجعة وتثبيت الحفظ" data-program-en="Revision and Retention" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+          
+          <div class="program-card-wrapper reveal reveal-delay-3">
+              <article class="program-card js-tilt">
+                <div class="card-top"><div class="card-icon" aria-hidden="true">✧</div><span class="card-number">06 / 06</span></div>
+                <h3 data-ar="برنامج الإجازة والسند" data-en="Ijazah & Sanad Program">برنامج الإجازة والسند</h3>
+                <p data-ar="يمكن الاستفسار عن التوفر وشروط الالتحاق عبر واتساب." data-en="Contact us to ask about availability and eligibility requirements.">يمكن الاستفسار عن التوفر وشروط الالتحاق عبر واتساب.</p>
+                <a class="card-link program-contact" data-program-ar="برنامج الإجازة والسند" data-program-en="Ijazah and Sanad Program" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="استفسري عن البرنامج" data-en="Ask about this program">استفسري عن البرنامج</span><span aria-hidden="true">←</span></a>
+              </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+ 
+
+    <!-- اختبار إرشادي لاختيار المسار -->
+    <section class="section finder-section" id="finder">
+      <div class="wrap finder-layout">
+        <div class="finder-intro reveal">
+          <div class="eyebrow" data-ar="خطوة تفاعلية" data-en="An interactive step">خطوة تفاعلية</div>
+          <h2 data-ar="مش متأكدة تبدئي منين؟" data-en="Not sure where to begin?">مش متأكدة تبدئي منين؟</h2>
+          <p data-ar="جاوبي عن سؤالين قصيرين، وسيقترح الموقع مسارًا مبدئيًا يمكنك مناقشته مع المعلمة." data-en="Answer two quick questions and get an initial path to discuss with the teacher.">جاوبي عن سؤالين قصيرين، وسيقترح الموقع مسارًا مبدئيًا يمكنك مناقشته مع المعلمة.</p>
+          <ul class="finder-points">
+            <li data-ar="اختيار بسيط حسب هدفك الحالي." data-en="A simple choice based on your current goal.">اختيار بسيط حسب هدفك الحالي.</li>
+            <li data-ar="النتيجة إرشادية ويمكن تعديلها بعد التواصل." data-en="The result is a suggestion and can be adjusted after contact.">النتيجة إرشادية ويمكن تعديلها بعد التواصل.</li>
+            <li data-ar="لا يتم تخزين إجاباتك أو إرسالها تلقائيًا." data-en="Your answers are not stored or sent automatically.">لا يتم تخزين إجاباتك أو إرسالها تلقائيًا.</li>
+          </ul>
+        </div>
+
+        <form class="finder-card reveal reveal-delay-1" id="programFinder">
+          <div class="finder-card-head">
+            <h3 data-ar="اختاري ما يناسبك" data-en="Choose what fits you">اختاري ما يناسبك</h3>
+            <span class="finder-badge" data-ar="سؤالان فقط" data-en="Just 2 questions">سؤالان فقط</span>
+          </div>
+          <fieldset class="question">
+            <legend data-ar="١. ما هدفك الأساسي؟" data-en="1. What is your main goal?">١. ما هدفك الأساسي؟</legend>
+            <div class="option-grid">
+              <label class="option"><input type="radio" name="goal" value="foundation" required><span data-ar="أبدأ تعلّم القراءة" data-en="Learn to read from the beginning">أبدأ تعلّم القراءة</span></label>
+              <label class="option"><input type="radio" name="goal" value="memorize"><span data-ar="حفظ القرآن الكريم" data-en="Memorize the Qur’an">حفظ القرآن الكريم</span></label>
+              <label class="option"><input type="radio" name="goal" value="recitation"><span data-ar="تحسين التلاوة" data-en="Improve my recitation">تحسين التلاوة</span></label>
+              <label class="option"><input type="radio" name="goal" value="tajweed"><span data-ar="تعلّم أحكام التجويد" data-en="Learn Tajweed rules">تعلّم أحكام التجويد</span></label>
+              <label class="option"><input type="radio" name="goal" value="revision"><span data-ar="مراجعة ما حفظته" data-en="Revise what I memorized">مراجعة ما حفظته</span></label>
+              <label class="option"><input type="radio" name="goal" value="ijazah"><span data-ar="الاستفسار عن الإجازة والسند" data-en="Ask about Ijazah and Sanad">الاستفسار عن الإجازة والسند</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="question">
+            <legend data-ar="٢. لمن سيكون التعلّم؟" data-en="2. Who is the learning for?">٢. لمن سيكون التعلّم؟</legend>
+            <div class="option-grid">
+              <label class="option"><input type="radio" name="learner" value="child" required><span data-ar="طفلة / طفل" data-en="A child">طفلة / طفل</span></label>
+              <label class="option"><input type="radio" name="learner" value="adult"><span data-ar="فتاة أو امرأة" data-en="A girl or woman">فتاة أو امرأة</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn-primary" type="submit"><span data-ar="اعرفي المسار المقترح" data-en="Show my suggested path">اعرفي المسار المقترح</span><span class="arrow" aria-hidden="true">←</span></button>
+          <div class="finder-result" id="finderResult" aria-live="polite" aria-atomic="true">
+            <h4 id="resultTitle"></h4>
+            <p id="resultDescription"></p>
+            <a class="btn btn-gold" id="resultWhatsApp" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="ناقشي الاختيار عبر واتساب" data-en="Discuss this path on WhatsApp">ناقشي الاختيار عبر واتساب</span><span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="privacy-note" data-ar="الاختبار إرشادي فقط، ولا يغني عن تحديد المستوى مع المعلمة." data-en="This quiz is for guidance only and does not replace a level assessment with the teacher.">الاختبار إرشادي فقط، ولا يغني عن تحديد المستوى مع المعلمة.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- الفئات التي تناسبها الدروس -->
+    <section class="section audience-section" id="audience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-ar="بيئة مناسبة لكل مرحلة" data-en="A supportive learning environment">بيئة مناسبة لكل مرحلة</div>
+          <h2 data-ar="التعلّم يبدأ من مستواك" data-en="Learning starts at your level">التعلّم يبدأ من مستواك</h2>
+          <p data-ar="تواصلي لمناقشة مستوى المتعلّمة والبرنامج الأنسب قبل بدء الدروس." data-en="Get in touch to discuss the learner’s level and a suitable program before lessons begin.">تواصلي لمناقشة مستوى المتعلّمة والبرنامج الأنسب قبل بدء الدروس.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-item reveal reveal-delay-1"><div class="audience-symbol" aria-hidden="true">♡</div><h3 data-ar="الفتيات" data-en="Girls">الفتيات</h3><p data-ar="حفظ ومراجعة وتجويد وفق المستوى والهدف." data-en="Memorization, revision, and Tajweed suited to level and goals.">حفظ ومراجعة وتجويد وفق المستوى والهدف.</p></article>
+          <article class="audience-item reveal reveal-delay-2"><div class="audience-symbol" aria-hidden="true">❀</div><h3 data-ar="النساء" data-en="Women">النساء</h3><p data-ar="مسارات للمبتدئات ولمن ترغب في تحسين التلاوة." data-en="Paths for beginners and learners who want to improve recitation.">مسارات للمبتدئات ولمن ترغب في تحسين التلاوة.</p></article>
+          <article class="audience-item reveal reveal-delay-3"><div class="audience-symbol" aria-hidden="true">☼</div><h3 data-ar="الأطفال" data-en="Children">الأطفال</h3><p data-ar="تأسيس في القراءة والقاعدة النورانية والحفظ." data-en="Reading foundations, Noorani Qaida, and memorization.">تأسيس في القراءة والقاعدة النورانية والحفظ.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- خطوات بداية التعلم -->
+    <section class="section steps-section" id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-ar="بداية بسيطة وواضحة" data-en="A simple, clear beginning">بداية بسيطة وواضحة</div>
+          <h2 data-ar="كيف تبدئين رحلتك؟" data-en="How do you get started?">كيف تبدئين رحلتك؟</h2>
+          <p data-ar="ثلاث خطوات لتوضيح الهدف ومناقشة المسار المناسب قبل بدء الدروس." data-en="Three steps to clarify your goal and discuss a suitable path before lessons begin.">ثلاث خطوات لتوضيح الهدف ومناقشة المسار المناسب قبل بدء الدروس.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal reveal-delay-1"><h3 data-ar="تواصلي معنا" data-en="Get in touch">تواصلي معنا</h3><p data-ar="أرسلي رسالة عبر واتساب توضّحين فيها عمر المتعلّمة ومستواها والهدف من الدروس." data-en="Send a WhatsApp message with the learner’s age, level, and learning goal.">أرسلي رسالة عبر واتساب توضّحين فيها عمر المتعلّمة ومستواها والهدف من الدروس.</p></article>
+          <article class="step reveal reveal-delay-2"><h3 data-ar="حددي البرنامج" data-en="Choose a program">حددي البرنامج</h3><p data-ar="ناقشي البرنامج الأنسب والمواعيد المتاحة والتفاصيل قبل التأكيد." data-en="Discuss the best-fit program, available lesson times, and details before confirming.">ناقشي البرنامج الأنسب والمواعيد المتاحة والتفاصيل قبل التأكيد.</p></article>
+          <article class="step reveal reveal-delay-3"><h3 data-ar="ابدئي التعلّم" data-en="Begin learning">ابدئي التعلّم</h3><p data-ar="ابدئي رحلتك أونلاين وراجعي مع المعلمة ما تم تعلمه والخطوة التالية." data-en="Start learning online and review progress and next steps with the teacher.">ابدئي رحلتك أونلاين وراجعي مع المعلمة ما تم تعلمه والخطوة التالية.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- الأسئلة الشائعة -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-ar="إجابات قبل البداية" data-en="Answers before you begin">إجابات قبل البداية</div>
+          <h2 data-ar="أسئلة شائعة" data-en="Frequently asked questions">أسئلة شائعة</h2>
+          <p data-ar="لو عندك سؤال آخر، تواصلي مباشرة عبر واتساب للحصول على التفاصيل." data-en="Have another question? Contact us on WhatsApp for details.">لو عندك سؤال آخر، تواصلي مباشرة عبر واتساب للحصول على التفاصيل.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal"><summary data-ar="هل الدروس مناسبة للمبتدئات؟" data-en="Are lessons suitable for beginners?">هل الدروس مناسبة للمبتدئات؟</summary><div class="faq-answer"><p data-ar="نعم، توجد مسارات تأسيسية مثل القاعدة النورانية، ويُفضّل التواصل لتحديد المستوى والبرنامج المناسب." data-en="Yes. Foundational paths such as Noorani Qaida are available. Contact us to discuss the learner’s level and suitable program.">نعم، توجد مسارات تأسيسية مثل القاعدة النورانية، ويُفضّل التواصل لتحديد المستوى والبرنامج المناسب.</p></div></details>
+          <details class="faq-item reveal"><summary data-ar="هل يمكن اختيار برنامج للحفظ أو للمراجعة فقط؟" data-en="Can I choose memorization or revision only?">هل يمكن اختيار برنامج للحفظ أو للمراجعة فقط؟</summary><div class="faq-answer"><p data-ar="الموقع يعرض مسارات للحفظ والمراجعة والتجويد وغيرها. تواصلي لمعرفة التفاصيل المتاحة وكيفية تنظيم الدروس." data-en="The site lists memorization, revision, Tajweed, and other paths. Contact us for availability and lesson arrangements.">الموقع يعرض مسارات للحفظ والمراجعة والتجويد وغيرها. تواصلي لمعرفة التفاصيل المتاحة وكيفية تنظيم الدروس.</p></div></details>
+          <details class="faq-item reveal"><summary data-ar="كيف أعرف البرنامج الأنسب لي؟" data-en="How do I find the right program?">كيف أعرف البرنامج الأنسب لي؟</summary><div class="faq-answer"><p data-ar="استخدمي اختبار اختيار المسار الموجود في الموقع للحصول على اقتراح مبدئي، ثم ناقشي مستواك وهدفك مع المعلمة عبر واتساب." data-en="Use the path finder on this site for an initial suggestion, then discuss your level and goal with the teacher on WhatsApp.">استخدمي اختبار اختيار المسار الموجود في الموقع للحصول على اقتراح مبدئي، ثم ناقشي مستواك وهدفك مع المعلمة عبر واتساب.</p></div></details>
+          <details class="faq-item reveal"><summary data-ar="كيف أعرف المواعيد والتكلفة؟" data-en="How do I learn about schedules and fees?">كيف أعرف المواعيد والتكلفة؟</summary><div class="faq-answer"><p data-ar="تواصلي عبر واتساب للاستفسار عن المواعيد المتاحة والتكلفة والتفاصيل الحالية قبل الاتفاق." data-en="Contact us on WhatsApp to ask about current availability, fees, and details before making arrangements.">تواصلي عبر واتساب للاستفسار عن المواعيد المتاحة والتكلفة والتفاصيل الحالية قبل الاتفاق.</p></div></details>
+          <details class="faq-item reveal"><summary data-ar="هل يتم حفظ إجاباتي في اختبار اختيار المسار؟" data-en="Are my path-finder answers saved?">هل يتم حفظ إجاباتي في اختبار اختيار المسار؟</summary><div class="faq-answer"><p data-ar="لا. الاختبار يعمل داخل المتصفح فقط، ولا يخزّن الإجابات أو يرسلها. تُفتح رسالة واتساب فقط عندما تختارين الضغط على زر التواصل." data-en="No. The quiz runs in your browser and does not store or send answers. WhatsApp opens only when you choose the contact button.">لا. الاختبار يعمل داخل المتصفح فقط، ولا يخزّن الإجابات أو يرسلها. تُفتح رسالة واتساب فقط عندما تختارين الضغط على زر التواصل.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- دعوة التواصل الأخيرة -->
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-content reveal">
+        <div class="eyebrow" data-ar="خطوتك القادمة تبدأ برسالة" data-en="Your next step starts with a message">خطوتك القادمة تبدأ برسالة</div>
+        <h2 data-ar="ابدئي رحلتك مع القرآن الكريم" data-en="Begin your journey with the Qur’an">ابدئي رحلتك مع القرآن الكريم</h2>
+        <p data-ar="للاستفسار عن البرامج والمواعيد والتفاصيل، تواصلي مباشرة عبر واتساب." data-en="For questions about programs, schedules, and details, message us directly on WhatsApp.">للاستفسار عن البرامج والمواعيد والتفاصيل، تواصلي مباشرة عبر واتساب.</p>
+        <div class="actions">
+          <a class="btn btn-gold wa-link" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer"><span data-ar="واتساب: 01032983656" data-en="WhatsApp: +20 1032983656">واتساب: 01032983656</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-outline" href="#home"><span data-ar="العودة إلى الأعلى" data-en="Back to top">العودة إلى الأعلى</span><span aria-hidden="true">↑</span></a>
+        </div>
+        <div class="contact-small" data-ar="تُحدَّد المواعيد والتفاصيل بعد التواصل." data-en="Schedules and details are confirmed after contact.">تُحدَّد المواعيد والتفاصيل بعد التواصل.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <div class="footer-brand"><span class="footer-brand-mark" aria-hidden="true">۞</span><span data-ar="© الشيخة سمية عاشور — تعليم القرآن الكريم أونلاين" data-en="© Sheikha Somaya Ashour — Online Qur’an Learning">© الشيخة سمية عاشور — تعليم القرآن الكريم أونلاين</span></div>
+      <!-- تم استخدام التعديل الأخير المطلوب في المصدر لحقوق النشر -->
+     <span class="footer-note" data-ar="جميع الحقوق محفوظة © 2026" data-en="All rights reserved © 2026">جميع الحقوق محفوظة © 2026</span>
+    </div>
+  </footer>
+  
+  <!-- ========== النافذة المنبثقة الذكية (Smart Modal) ========== -->
+  <div class="modal-overlay" id="smartModal">
+      <div class="modal-content">
+          <button class="modal-close" id="closeModal" aria-label="إغلاق النافذة">×</button>
+          <div class="modal-icon">۞</div>
+          <h3 class="modal-title" data-ar="مرحباً بكِ في رحلة النور" data-en="Welcome to the Journey of Light">مرحباً بكِ في رحلة النور</h3>
+          <p class="modal-desc" data-ar="هل تبحثين عن المسار الأنسب لكِ أو لطفلك؟ احجزي جلسة تقييم مبدئية لتحديد المستوى." data-en="Looking for the right path? Book an initial assessment session to determine the level.">هل تبحثين عن المسار الأنسب لكِ أو لطفلك؟ احجزي جلسة تقييم مبدئية لتحديد المستوى.</p>
+          <a class="btn btn-primary" href="https://wa.me/201032983656?text=السلام%20عليكم،%20أريد%20حجز%20جلسة%20تقييم%20مبدئية." target="_blank" rel="noopener noreferrer">
+              <span data-ar="احجزي جلسة تقييم الآن" data-en="Book an assessment now">احجزي جلسة تقييم الآن</span>
+          </a>
+      </div>
+  </div>
+
+  <!-- زر واتساب العائم -->
+  <a class="floating-whatsapp wa-link" href="https://wa.me/201032983656" target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر واتساب">
+    <span class="whatsapp-icon" aria-hidden="true">◉</span><span data-ar="تواصلي معنا" data-en="Chat with us">تواصلي معنا</span>
+  </a>
+  <!-- زر العودة إلى أعلى الصفحة -->
+  <button class="to-top" id="toTop" type="button" aria-label="العودة إلى أعلى الصفحة" title="العودة للأعلى">↑</button>
+
+  <script>
+    // ============================================================
+    // المتغيرات العامة
+    // ============================================================
+    const WHATSAPP_NUMBER = '201032983656';
+    const langToggle = document.getElementById('langToggle');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const siteHeader = document.getElementById('siteHeader');
+    const readingProgress = document.getElementById('readingProgress');
+    const toTop = document.getElementById('toTop');
+    let currentLanguage = 'ar';
+
+    // ============================================================
+    // 1. الماوس المخصص (Custom Cursor)
+    // ============================================================
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorOutline = document.getElementById('cursorOutline');
+    
+    // تتبع حركة الماوس فقط إذا كان الجهاز يدعم Hover
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            // النقطة الصغيرة تتبع فوراً
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            // الدائرة الكبيرة تتبع بتأخير بسيط لمحاكاة النعومة
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // إضافة تأثير عند الوقوف على الأزرار والروابط
+        const interactiveElements = document.querySelectorAll('a, button, input, label, summary, .js-tilt');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+    }
+
+    // ============================================================
+    // 2. تأثير الكتابة التلقائية (Typewriter Effect)
+    // ============================================================
+// ============================================================
+// 2. تأثير التبديل الناعم للكلمات (Fade & Slide Effect)
+// ============================================================
+const rotatingElement = document.getElementById('rotatingText');
+const wordsAr = ["حفظ القرآن الكريم", "أحكام التجويد", "تصحيح التلاوة", "القاعدة النورانية"];
+const wordsEn = ["Qur'an Memorization", "Tajweed Rules", "Recitation Correction", "Noorani Qaida"];
+let wordIndex = 0;
+
+function rotateText() {
+    if (!rotatingElement) return;
+
+    // 1. إخفاء الكلمة الحالية برفعها للأعلى
+    rotatingElement.classList.add('fade-out');
+
+    setTimeout(() => {
+        // 2. تغيير النص بعد أن يختفي تماماً
+        wordIndex = (wordIndex + 1) % wordsAr.length;
+        const currentWords = currentLanguage === 'ar' ? wordsAr : wordsEn;
+        rotatingElement.textContent = currentWords[wordIndex];
+
+        // 3. تجهيز الكلمة الجديدة لتأتي من أسفل
+        rotatingElement.classList.remove('fade-out');
+        rotatingElement.classList.add('fade-in');
+
+        // 4. إظهار الكلمة في المنتصف بنعومة
+        setTimeout(() => {
+            rotatingElement.classList.remove('fade-in');
+        }, 50); // وقت قصير جداً لتفعيل التأثير البصري
+
+    }, 500); // 500 ملي ثانية تتطابق مع وقت الـ transition في CSS
+}
+
+// تشغيل التأثير كل 3 ثوانٍ
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(rotateText, 3000);
+}
+// ============================================================
+
+    // ============================================================
+    // 3. تأثير المنظور في الخلفية (Parallax Background)
+    // ============================================================
+    const parallaxBg = document.getElementById('parallaxBg');
+    const parallaxItems = document.querySelectorAll('.parallax-item');
+    
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2);
+            const y = (e.clientY - window.innerHeight / 2);
+            
+            parallaxItems.forEach(item => {
+                const speed = item.getAttribute('data-speed');
+                item.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    }
+
+    // ============================================================
+    // 4. تأثير 3D لكروت البرامج (3D Hover Tilt)
+    // ============================================================
+    const tiltCards = document.querySelectorAll('.js-tilt');
+    
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; // موقع الماوس بالنسبة للكارت X
+                const y = e.clientY - rect.top;  // موقع الماوس بالنسبة للكارت Y
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // حساب نسبة الميل (كلما بعد الماوس عن المركز زاد الميل)
+                const rotateX = ((y - centerY) / centerY) * -10; // أقصى ميل 10 درجات
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.transition = 'none'; // إلغاء الـ transition أثناء الحركة لتكون فورية
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0)';
+                card.style.transition = 'transform 0.5s ease'; // إعادة الـ transition عند الخروج ليعود بنعومة
+            });
+        });
+    }
+
+    // ============================================================
+    // 5. العدادات المتحركة (Animated Counters)
+    // ============================================================
+    const counters = document.querySelectorAll('.count-up');
+    let countersAnimated = false;
+    
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 ثانية
+            const increment = target / (duration / 16); // 60 إطار في الثانية
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    }
+
+    // مراقبة قسم العدادات لتشغيله عند الظهور
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !countersAnimated) {
+                animateCounters();
+                countersAnimated = true;
+            }
+        }, { threshold: 0.5 });
+        counterObserver.observe(document.getElementById('countersSection'));
+    } else {
+        // إذا كان المتصفح لا يدعم أو المستخدم لا يفضل الحركة
+        counters.forEach(counter => counter.innerText = counter.getAttribute('data-target'));
+    }
+
+
+
+    // ============================================================
+    // 7. النافذة المنبثقة الذكية (Smart Popup Modal)
+    // ============================================================
+    const smartModal = document.getElementById('smartModal');
+    const closeModal = document.getElementById('closeModal');
+    let modalShown = false;
+
+    // إظهار النافذة بعد 15 ثانية من فتح الموقع (أو عند النزول لمنتصف الصفحة)
+    setTimeout(() => {
+        if (!modalShown) {
+            smartModal.classList.add('active');
+            modalShown = true;
+        }
+    }, 15000); // 15 ثانية
+
+    // إغلاق النافذة
+    closeModal.addEventListener('click', () => {
+        smartModal.classList.remove('active');
+    });
+
+    // إغلاق عند النقر خارج المحتوى
+    smartModal.addEventListener('click', (e) => {
+        if (e.target === smartModal) {
+            smartModal.classList.remove('active');
+        }
+    });
+
+    // ============================================================
+    // الوظائف الأصلية (اللغة، الوضع الليلي، التمرير...)
+    // ============================================================
+    const pathCopy = {
+      foundation: {
+        ar: { title: 'المسار المقترح: القاعدة النورانية', description: 'قد يكون البدء بالحروف وأساسيات القراءة مناسبًا لك. ناقشي مستوى المتعلّمة مع المعلمة لتأكيد الاختيار.', program: 'القاعدة النورانية' },
+        en: { title: 'Suggested path: Noorani Qaida', description: 'Starting with letters and reading foundations may suit you. Discuss the learner’s level with the teacher to confirm.', program: 'Noorani Qaida' }
+      },
+      memorize: {
+        ar: { title: 'المسار المقترح: حفظ القرآن الكريم', description: 'يمكن مناقشة خطة للحفظ والمراجعة تناسب مستواك والوقت المتاح لك.', program: 'حفظ القرآن الكريم' },
+        en: { title: 'Suggested path: Qur’an Memorization', description: 'Discuss a memorization and revision plan that fits your level and available time.', program: 'Qur’an Memorization' }
+      },
+      recitation: {
+        ar: { title: 'المسار المقترح: تصحيح التلاوة', description: 'قد يناسبك التركيز على القراءة الصحيحة ومخارج الحروف. يتم تحديد التفاصيل مع المعلمة.', program: 'تصحيح التلاوة' },
+        en: { title: 'Suggested path: Recitation Correction', description: 'Focusing on accurate reading and letter articulation may suit you. Confirm the details with the teacher.', program: 'Recitation Correction' }
+      },
+      tajweed: {
+        ar: { title: 'المسار المقترح: أحكام التجويد', description: 'يمكنك الاستفسار عن دراسة القواعد وتطبيقها عمليًا أثناء التلاوة.', program: 'أحكام التجويد' },
+        en: { title: 'Suggested path: Tajweed Rules', description: 'Ask about learning Tajweed rules and applying them during recitation.', program: 'Tajweed Rules' }
+      },
+      revision: {
+        ar: { title: 'المسار المقترح: مراجعة وتثبيت الحفظ', description: 'ناقشي طريقة مراجعة المحفوظ وتثبيته بما يناسب مستواك.', program: 'مراجعة وتثبيت الحفظ' },
+        en: { title: 'Suggested path: Revision & Retention', description: 'Discuss a way to revise and reinforce memorized passages suited to your level.', program: 'Revision and Retention' }
+      },
+      ijazah: {
+        ar: { title: 'المسار المقترح: الاستفسار عن الإجازة والسند', description: 'تواصلي لمعرفة مدى توفر البرنامج وشروط الالتحاق المناسبة لحالتك.', program: 'برنامج الإجازة والسند' },
+        en: { title: 'Suggested path: Ijazah & Sanad', description: 'Contact the teacher to ask about availability and eligibility requirements.', program: 'Ijazah and Sanad Program' }
+      }
+    };
+
+    function setLanguage(nextLanguage) {
+      currentLanguage = nextLanguage;
+      document.documentElement.lang = nextLanguage;
+      document.documentElement.dir = nextLanguage === 'ar' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-ar][data-en]').forEach((element) => {
+        if(element.id !== 'typewriterText') { // استثناء النص المتحرك لأنه يتحدث تلقائياً
+            element.textContent = element.dataset[nextLanguage];
+        }
+      });
+
+      langToggle.textContent = nextLanguage === 'ar' ? 'English' : 'العربية';
+      langToggle.setAttribute('aria-label', nextLanguage === 'ar' ? 'تغيير لغة الموقع إلى الإنجليزية' : 'Switch website language to Arabic');
+      menuToggle.setAttribute('aria-label', nextLanguage === 'ar' ? 'فتح القائمة' : 'Open menu');
+      const isDarkMode = document.body.dataset.theme === 'dark';
+      themeToggle.setAttribute('aria-label', isDarkMode
+        ? (nextLanguage === 'ar' ? 'تفعيل الوضع الفاتح' : 'Switch to light mode')
+        : (nextLanguage === 'ar' ? 'تفعيل الوضع الليلي' : 'Switch to dark mode'));
+      themeToggle.title = isDarkMode
+        ? (nextLanguage === 'ar' ? 'الوضع الفاتح' : 'Light mode')
+        : (nextLanguage === 'ar' ? 'الوضع الليلي' : 'Dark mode');
+      document.querySelector('.nav-links').setAttribute('aria-label', nextLanguage === 'ar' ? 'التنقل الرئيسي' : 'Main navigation');
+      toTop.setAttribute('aria-label', nextLanguage === 'ar' ? 'العودة إلى أعلى الصفحة' : 'Back to top');
+      document.title = nextLanguage === 'ar'
+        ? 'الشيخة سمية عاشور | تعليم القرآن الكريم أونلاين'
+        : 'Sheikha Somaya Ashour | Online Qur’an Learning';
+      
+      updateFinderResultLanguage();
+      try { localStorage.setItem('somaya-site-language', nextLanguage); } catch (error) {}
+    }
+
+    langToggle.addEventListener('click', () => setLanguage(currentLanguage === 'ar' ? 'en' : 'ar'));
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      document.body.dataset.theme = isDark ? 'dark' : 'light';
+      themeIcon.textContent = isDark ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', isDark
+        ? (currentLanguage === 'ar' ? 'تفعيل الوضع الفاتح' : 'Switch to light mode')
+        : (currentLanguage === 'ar' ? 'تفعيل الوضع الليلي' : 'Switch to dark mode'));
+      themeToggle.title = isDark
+        ? (currentLanguage === 'ar' ? 'الوضع الفاتح' : 'Light mode')
+        : (currentLanguage === 'ar' ? 'الوضع الليلي' : 'Dark mode');
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      themeMeta.content = isDark ? '#101c19' : '#103d32';
+    }
+
+    let savedTheme = 'light';
+    try { savedTheme = localStorage.getItem('somaya-site-theme') || 'light'; } catch (error) {}
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      try { localStorage.setItem('somaya-site-theme', nextTheme); } catch (error) {}
+    });
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); 
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    let scrollTicking = false;
+    function updateScrollUI() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      readingProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+      siteHeader.classList.toggle('scrolled', scrollTop > 8);
+      toTop.classList.toggle('visible', scrollTop > 520);
+      scrollTicking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(updateScrollUI);
+        scrollTicking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', updateScrollUI);
+    updateScrollUI();
+
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+
+    document.querySelectorAll('.program-contact').forEach((link) => {
+      link.addEventListener('click', () => {
+        const programName = currentLanguage === 'ar' ? link.dataset.programAr : link.dataset.programEn;
+        const message = currentLanguage === 'ar'
+          ? `السلام عليكم، أريد الاستفسار عن برنامج: ${programName}.`
+          : `Hello, I would like to ask about the ${programName} program.`;
+        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      });
+    });
+
+    let lastFinderResult = null;
+    const finderForm = document.getElementById('programFinder');
+    const finderResult = document.getElementById('finderResult');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultDescription = document.getElementById('resultDescription');
+    const resultWhatsApp = document.getElementById('resultWhatsApp');
+
+    function updateFinderResultLanguage() {
+      if (!lastFinderResult) return;
+      const copy = pathCopy[lastFinderResult.goal][currentLanguage];
+      resultTitle.textContent = copy.title;
+      resultDescription.textContent = copy.description;
+      const learnerText = currentLanguage === 'ar'
+        ? (lastFinderResult.learner === 'child' ? 'طفل/طفلة' : 'فتاة أو امرأة')
+        : (lastFinderResult.learner === 'child' ? 'a child' : 'a girl or woman');
+      const message = currentLanguage === 'ar'
+        ? `السلام عليكم، أجريت اختبار اختيار المسار على الموقع. المسار المقترح: ${copy.program}. المستفيدة: ${learnerText}. أود الاستفسار عن التفاصيل.`
+        : `Hello, I used the website path finder. Suggested path: ${copy.program}. Learner: ${learnerText}. I would like to ask for more details.`;
+      resultWhatsApp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    finderForm.addEventListener('submit', (event) => {
+      event.preventDefault(); 
+      const formData = new FormData(finderForm);
+      const goal = formData.get('goal');
+      const learner = formData.get('learner');
+      if (!goal || !learner || !pathCopy[goal]) return;
+
+      lastFinderResult = { goal, learner };
+      updateFinderResultLanguage();
+      finderResult.classList.add('show');
+      finderResult.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+    });
+
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          document.querySelectorAll('.faq-item').forEach((otherItem) => {
+            if (otherItem !== item) otherItem.open = false;
+          });
+        }
+      });
+    });
+    
+    const footerCopyright = document.querySelector('.footer-brand span[data-ar]');
+    if (footerCopyright) {
+      footerCopyright.dataset.ar = `© ${new Date().getFullYear()} الشيخة سمية عاشور — تعليم القرآن الكريم أونلاين`;
+      footerCopyright.dataset.en = `© ${new Date().getFullYear()} Sheikha Somaya Ashour — Online Qur’an Learning`;
+      footerCopyright.textContent = footerCopyright.dataset[currentLanguage];
+    }
+  </script>
+</body>
+</html>
