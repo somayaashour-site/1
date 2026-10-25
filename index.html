@@ -851,11 +851,11 @@ h1 {
     <div class="counters-section reveal" id="countersSection">
         <div class="wrap counters-grid">
             <div class="counter-item">
-                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="10">0</span></div>
+                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="20">0</span></div>
                 <div class="counter-label" data-ar="سنوات خبرة في التعليم" data-en="Years of teaching experience">سنوات خبرة في التعليم</div>
             </div>
             <div class="counter-item">
-                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="500">0</span></div>
+                <div class="counter-number"><span class="plus">+</span><span class="count-up" data-target="1000">0</span></div>
                 <div class="counter-label" data-ar="طالبة أتممن البرامج" data-en="Students completed programs">طالبة أتممن البرامج</div>
             </div>
             <div class="counter-item">
@@ -1226,20 +1226,14 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     // ============================================================
     // 5. العدادات المتحركة (Animated Counters)
     // ============================================================
-   // ============================================================
-    // 5. العدادات المتحركة (مربوطة بجوجل شيت لتعمل سوياً بتزامن)
-    // ============================================================
     const counters = document.querySelectorAll('.count-up');
     let countersAnimated = false;
-    let dataFetched = false;
-    let isSectionVisible = false;
-
-    // دالة الأنيميشن (لن تبدأ إلا بالرقم النهائي الصحيح)
+    
     function animateCounters() {
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
-            const duration = 2000; // مدة الحركة 2 ثانية
-            const increment = target / (duration / 16);
+            const duration = 2000; // 2 ثانية
+            const increment = target / (duration / 16); // 60 إطار في الثانية
             let current = 0;
             
             const updateCounter = () => {
@@ -1255,74 +1249,20 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         });
     }
 
-    // 1. جلب البيانات من شيت جوجل أولاً
-    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBYa6qQdKwr961QnQjQd-kjBpgf4gWDnEujYzcy23cQ4ioWG1NTT2ViZvuy7sUFFPcscNNPbsRMowP/pub?gid=0&single=true&output=csv";
-    
-    fetch(sheetURL)
-      .then(response => response.text())
-      .then(data => {
-        const rows = data.split('\n');
-        rows.forEach(row => {
-          const columns = row.split(',');
-          if (columns.length >= 2) {
-            const key = columns[0].trim();
-            const value = columns[1].trim();
-            
-            counters.forEach(counter => {
-              let isMatch = false;
-              if (key === 'experience' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Years of teaching experience') isMatch = true;
-              if (key === 'students' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Students completed programs') isMatch = true;
-              if (key === 'programs' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Specialized learning paths') isMatch = true;
-              
-              if (isMatch) {
-                  counter.setAttribute('data-target', value); // تحديث الهدف للرقم الجديد
-              }
-            });
-          }
-        });
-      })
-      .catch(error => console.log("خطأ في قراءة الأرقام:", error))
-      .finally(() => {
-          dataFetched = true; // تسجيل أن البيانات وصلت
-          
-          // إذا كان الزائر واقفاً عند قسم العدادات، نبدأ الحركة فور وصول البيانات
-          if (isSectionVisible && !countersAnimated) {
-              animateCounters();
-              countersAnimated = true;
-          }
-      });
-
-    // أمان إضافي: لو تأخر جوجل بسبب ضعف الإنترنت لأكثر من ثانية ونصف، نشغل العداد بالأرقام الافتراضية كي لا يتوقف
-    setTimeout(() => {
-        if (!dataFetched) {
-            dataFetched = true;
-            if (isSectionVisible && !countersAnimated) {
-                animateCounters();
-                countersAnimated = true;
-            }
-        }
-    }, 1500);
-
-    // 2. مراقبة رؤية الزائر لقسم العدادات
+    // مراقبة قسم العدادات لتشغيله عند الظهور
     if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const counterObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                isSectionVisible = true;
-                
-                // نشغل الحركة *فقط* لو كانت البيانات قد وصلت بالفعل من جوجل
-                if (dataFetched && !countersAnimated) {
-                    animateCounters();
-                    countersAnimated = true;
-                }
+            if (entries[0].isIntersecting && !countersAnimated) {
+                animateCounters();
+                countersAnimated = true;
             }
         }, { threshold: 0.5 });
         counterObserver.observe(document.getElementById('countersSection'));
     } else {
-        // للأجهزة التي لا تدعم الحركة
-        setTimeout(() => {
-            counters.forEach(counter => counter.innerText = counter.getAttribute('data-target'));
-        }, 1500);
+        // إذا كان المتصفح لا يدعم أو المستخدم لا يفضل الحركة
+        counters.forEach(counter => counter.innerText = counter.getAttribute('data-target'));
     }
+
 
 
     // ============================================================
@@ -1549,11 +1489,9 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       footerCopyright.textContent = footerCopyright.dataset[currentLanguage];
     }
   </script>
-
-
-<script>
+  <script>
   // رابط شيت جوجل الخاص بك (بصيغة CSV)
-    // رابط شيت جوجل الخاص بك (بصيغة CSV)
+     // رابط شيت جوجل الخاص بك (بصيغة CSV)
   const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBYa6qQdKwr961QnQjQd-kjBpgf4gWDnEujYzcy23cQ4ioWG1NTT2ViZvuy7sUFFPcscNNPbsRMowP/pub?gid=0&single=true&output=csv";
 
   fetch(sheetURL)
@@ -1592,7 +1530,5 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     .catch(error => console.log("خطأ في قراءة الأرقام:", error));
 </script>
 
-  
-  
 </body>
 </html>
