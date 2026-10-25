@@ -1493,7 +1493,8 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 <script>
   // رابط شيت جوجل الخاص بك (بصيغة CSV)
-      const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBYa6qQdKwr961QnQjQd-kjBpgf4gWDnEujYzcy23cQ4ioWG1NTT2ViZvuy7sUFFPcscNNPbsRMowP/pub?gid=0&single=true&output=csv";
+    // رابط شيت جوجل الخاص بك (بصيغة CSV)
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBYa6qQdKwr961QnQjQd-kjBpgf4gWDnEujYzcy23cQ4ioWG1NTT2ViZvuy7sUFFPcscNNPbsRMowP/pub?gid=0&single=true&output=csv";
 
   fetch(sheetURL)
     .then(response => response.text())
@@ -1509,14 +1510,20 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           // البحث عن العدادات في الصفحة وتحديث أرقامها
           const counters = document.querySelectorAll('.count-up');
           counters.forEach(counter => {
-            if (key === 'experience' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Years of teaching experience') {
+            let isMatch = false;
+            
+            if (key === 'experience' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Years of teaching experience') isMatch = true;
+            if (key === 'students' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Students completed programs') isMatch = true;
+            if (key === 'programs' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Specialized learning paths') isMatch = true;
+
+            if (isMatch) {
+                // تحديث الهدف للأنيميشن
                 counter.setAttribute('data-target', value);
-            }
-            if (key === 'students' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Students completed programs') {
-                counter.setAttribute('data-target', value);
-            }
-            if (key === 'programs' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Specialized learning paths') {
-                counter.setAttribute('data-target', value);
+                
+                // إذا كان العداد قد انتهى من حركته قبل وصول البيانات من جوجل، قم بتحديث الرقم الظاهر فوراً
+                if (typeof countersAnimated !== 'undefined' && countersAnimated) {
+                    counter.innerText = value;
+                }
             }
           });
         }
