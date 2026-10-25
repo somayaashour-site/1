@@ -1489,5 +1489,43 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       footerCopyright.textContent = footerCopyright.dataset[currentLanguage];
     }
   </script>
+
+
+<script>
+  // رابط شيت جوجل الخاص بك (بصيغة CSV)
+      const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBYa6qQdKwr961QnQjQd-kjBpgf4gWDnEujYzcy23cQ4ioWG1NTT2ViZvuy7sUFFPcscNNPbsRMowP/pub?gid=0&single=true&output=csv";
+
+  fetch(sheetURL)
+    .then(response => response.text())
+    .then(data => {
+      // تفكيك البيانات القادمة من الشيت
+      const rows = data.split('\n');
+      rows.forEach(row => {
+        const columns = row.split(',');
+        if (columns.length >= 2) {
+          const key = columns[0].trim();
+          const value = columns[1].trim();
+
+          // البحث عن العدادات في الصفحة وتحديث أرقامها
+          const counters = document.querySelectorAll('.count-up');
+          counters.forEach(counter => {
+            if (key === 'experience' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Years of teaching experience') {
+                counter.setAttribute('data-target', value);
+            }
+            if (key === 'students' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Students completed programs') {
+                counter.setAttribute('data-target', value);
+            }
+            if (key === 'programs' && counter.parentNode.nextElementSibling.getAttribute('data-en') === 'Specialized learning paths') {
+                counter.setAttribute('data-target', value);
+            }
+          });
+        }
+      });
+    })
+    .catch(error => console.log("خطأ في قراءة الأرقام:", error));
+</script>
+
+  
+  
 </body>
 </html>
